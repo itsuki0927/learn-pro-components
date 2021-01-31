@@ -2,7 +2,7 @@ import React, { FC, useState } from 'react';
 import { Form, Popover } from 'antd';
 import type { FormItemProps } from 'antd/lib/form';
 
-const InlineErrorForm: FC<FormItemProps> = (props) => {
+const InlineErrorFormItem: FC<FormItemProps> = (props) => {
   const [visible, setVisible] = useState(false);
   return (
     <Form.Item
@@ -42,4 +42,4 @@ const InlineErrorForm: FC<FormItemProps> = (props) => {
   );
 };
 
-export default InlineErrorForm;
+export default InlineErrorFormItem;

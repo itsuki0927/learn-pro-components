@@ -71,3 +71,9 @@ export type ProFieldValueObjectType = {
   precision?: number;
   request?: ProFieldRequestData;
 };
+
+export type SearchTransformKeyFn = (
+  value: any,
+  field: any,
+  object: any,
+) => string | Record<string, any>;

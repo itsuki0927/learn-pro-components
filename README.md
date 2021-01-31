@@ -1,57 +1,61 @@
-# Ant Design Pro
+# learn pro-components
 
-This project is initialized with [Ant Design Pro](https://pro.ant.design). Follow is the quick guide for how to use.
+学习pro-components源码
 
-## Environment Prepare
+## field
 
-Install `node_modules`:
+原子组件
 
-```bash
-npm install
-```
+- Checkbox
+- Code
+- DatePicker
+- Digit
+- FromNow
+- IndexColumn
+- Money
+- Options
+- Password
+- Percent
+- Progress
+- Radio
+- RangePicker
+- Rate
+- Second
+- Select
+- Status
+- Switch
+- Text
+- TextArea
+- TimePicker
 
-or
+## utils
 
-```bash
-yarn
-```
+### components
 
-## Provided Scripts
+- DropdownFooter
+- FieldLabel
+- FilterDropdown
+- InlineErrorForm
+- LabelIconTip
 
-Ant Design Pro provides some useful script to help you quick start and build with web project, code style check and test.
+### hooks
 
-Scripts provided in `package.json`. It's safe to modify or add additional script:
+- useDeepCompareEffect
 
-### Start project
+## main
 
-```bash
-npm start
-```
-
-### Build project
-
-```bash
-npm run build
-```
-
-### Check code style
-
-```bash
-npm run lint
-```
-
-You can also use script to auto fix some lint error:
-
-```bash
-npm run lint:fix
-```
-
-### Test code
-
-```bash
-npm test
-```
-
-## More
-
-You can view full document on our [official website](https://pro.ant.design). And welcome any feedback in our [github](https://github.com/ant-design/ant-design-pro).
+- conversionSubmitValue
+- getFieldPropsOrFormItemProps
+- isNil
+- isImg
+- isUrl
+- isBrowser
+- isDropdownValueType
+- parseValueToMoment
+- runFunction
+- omitBoolean
+- omitUndefined
+- omitUndefinedAndEmptyArr
+- pickProFormItemProps
+- pickProProps
+- transformKeySubmitValue
