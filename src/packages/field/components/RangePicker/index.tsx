@@ -1,10 +1,9 @@
-import { DatePicker, ConfigProvider } from 'antd';
-import React, { useState, useContext } from 'react';
-import moment from 'moment';
-import { FieldLabel, parseValueToMoment } from '@/packages/utils';
 import { useIntl } from '@/packages/provider';
+import { FieldLabel, parseValueToMoment } from '@/packages/utils';
+import { ConfigProvider, DatePicker } from 'antd';
 import SizeContext from 'antd/lib/config-provider/SizeContext';
-
+import moment from 'moment';
+import React, { useContext, useState } from 'react';
 import type { ProFieldFC } from '../../index';
 
 const ACTIVE_PICKER_INDEX_LEFT = 0;

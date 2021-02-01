@@ -1,12 +1,11 @@
-import React, { useContext, useImperativeHandle, useRef } from 'react';
-import { Radio, ConfigProvider, Spin } from 'antd';
-import classNames from 'classnames';
+import { ConfigProvider, Radio, Spin } from 'antd';
 import type { RadioGroupProps } from 'antd/lib/radio';
+import classNames from 'classnames';
+import React, { useContext, useImperativeHandle, useRef } from 'react';
 import type { ProFieldFC } from '../../index';
-
+import type { FieldSelectProps } from '../Select';
+import { ObjectToMap, proFieldParsingText, useFieldFetchData } from '../Select';
 import './index.less';
-import { FieldSelectProps, ObjectToMap } from '../Select';
-import { proFieldParsingText, useFieldFetchData } from '../Select';
 
 export type GroupProps = {
   layout?: 'horizontal' | 'vertical';
@@ -57,7 +56,6 @@ const FieldRadio: ProFieldFC<GroupProps> = (
         className={classNames(rest.fieldProps?.classNames, `${layoutClassName}-${layout}`)}
         options={undefined}
       >
-        {' '}
         {options
           ?.map((option) => {
             if (typeof option === 'string') {

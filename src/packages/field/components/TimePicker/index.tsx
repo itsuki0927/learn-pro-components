@@ -1,8 +1,8 @@
-import { DatePicker, ConfigProvider } from 'antd';
-import React, { useState, useContext } from 'react';
-import moment from 'moment';
-import { FieldLabel, parseValueToMoment } from '@ant-design/pro-utils';
+import { FieldLabel, parseValueToMoment } from '@/packages/utils';
+import { ConfigProvider, DatePicker } from 'antd';
 import SizeContext from 'antd/lib/config-provider/SizeContext';
+import moment from 'moment';
+import React, { useContext, useState } from 'react';
 import type { ProFieldFC } from '../../index';
 
 const FieldTimePicker: ProFieldFC<{ text: string | number; format: string }> = (

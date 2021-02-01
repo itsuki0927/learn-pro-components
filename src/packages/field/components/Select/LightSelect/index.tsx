@@ -1,11 +1,10 @@
-import React, { useState, useContext, useMemo } from 'react';
-import { Select, Input, ConfigProvider } from 'antd';
-import type { SelectProps } from 'antd/es/select';
-import { SearchOutlined } from '@ant-design/icons';
-import classNames from 'classnames';
-
-import './index.less';
 import { FieldLabel } from '@/packages/utils';
+import { SearchOutlined } from '@ant-design/icons';
+import { ConfigProvider, Input, Select } from 'antd';
+import type { SelectProps } from 'antd/es/select';
+import classNames from 'classnames';
+import React, { useContext, useMemo, useState } from 'react';
+import './index.less';
 
 export type LightSelectProps = {
   label?: string;

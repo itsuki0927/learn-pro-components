@@ -1,11 +1,17 @@
-import {
+import { useIntl } from '@/packages/provider';
+import type {
+  ProFieldRequestData,
+  ProFieldValueEnumType,
   ProSchemaValueEnumMap,
   ProSchemaValueEnumObj,
   ProSchemaValueEnumType,
-  useIntl,
-} from '@/packages/provider';
-import { ProFieldRequestData, ProFieldValueEnumType } from '@/packages/utils/typing';
-import Select, { SelectProps } from 'antd/lib/select';
+} from '@/packages/utils';
+import { useDeepCompareEffect } from '@/packages/utils';
+import { Space, Spin } from 'antd';
+import SizeContext from 'antd/lib/config-provider/SizeContext';
+import type { SelectProps } from 'antd/lib/select';
+import Select from 'antd/lib/select';
+import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import React, {
   useCallback,
   useContext,
@@ -14,14 +20,10 @@ import React, {
   useRef,
   useState,
 } from 'react';
-import useMergedState from 'rc-util/lib/hooks/useMergedState';
-import useDeepCompareEffect from '@/packages/utils/hooks/useDeepCompareEffect';
 import useSWR from 'swr';
-import { Space, Spin } from 'antd';
-import { ProFieldBadgeColor, ProFieldStatusType } from '../Status';
-import { TableStatus } from '@ant-design/pro-table';
 import type { ProFieldFC } from '../../index';
-import SizeContext from 'antd/lib/config-provider/SizeContext';
+import type { ProFieldStatusType } from '../Status';
+import TableStatus, { ProFieldBadgeColor } from '../Status';
 import LightSelect from './LightSelect';
 
 let testId = 0;

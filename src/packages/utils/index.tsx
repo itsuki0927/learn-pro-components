@@ -34,6 +34,11 @@ import type {
   ProFieldValueEnumType,
   ProFieldRequestData,
   ProFieldValueObjectType,
+  ProFieldTextType,
+  ProSchema,
+  ProSchemaValueEnumMap,
+  ProSchemaValueEnumObj,
+  ProSchemaValueEnumType,
 } from './typing';
 import getFieldPropsOrFormItemProps from './getFieldPropsOrFormItemProps';
 import DropdownFooter from './components/DropdownFooter';
@@ -43,7 +48,7 @@ import type {
   ProFieldFCMode,
   ProFieldFCRenderProps,
   ProRenderFieldPropsType,
-} from '@ant-design/pro-provider';
+} from '@/packages/provider';
 
 export type {
   SearchTransformKeyFn,
@@ -55,6 +60,11 @@ export type {
   BaseProFieldFC,
   ProFieldValueEnumType,
   ProFieldValueObjectType,
+  ProFieldTextType,
+  ProSchema,
+  ProSchemaValueEnumMap,
+  ProSchemaValueEnumObj,
+  ProSchemaValueEnumType,
 };
 
 export {

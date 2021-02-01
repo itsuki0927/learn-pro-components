@@ -1,7 +1,7 @@
-import React from 'react';
 import { Switch } from 'antd';
-import Omit from 'omit.js';
 import type { SwitchProps } from 'antd/lib/switch';
+import Omit from 'omit.js';
+import React from 'react';
 import type { ProFieldFC } from '../../index';
 
 const FieldSwitch: ProFieldFC<{ text: boolean; fieldProps?: SwitchProps }> = (

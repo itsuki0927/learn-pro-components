@@ -1,7 +1,6 @@
 import { useIntl } from '@/packages/provider';
 import { Input } from 'antd';
 import React from 'react';
-
 import type { ProFieldFC } from '../../index';
 
 const FieldTextArea: ProFieldFC<{ text: string }> = (

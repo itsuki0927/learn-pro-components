@@ -1,5 +1,4 @@
 import React, { useContext } from 'react';
-import { ConfigProvider as AntdConfigProvider } from 'antd';
 import { noteOnce } from 'rc-util/lib/warning';
 
 import arEG from './locale/ar_EG';
@@ -37,7 +36,11 @@ export type ProSchemaValueEnumType = {
   disabled?: boolean;
 };
 
-export type BasicProFieldFC = {
+export type ProSchemaValueEnumMap = Map<React.ReactText, ProSchemaValueEnumType | React.ReactNode>;
+
+export type ProSchemaValueEnumObj = Record<string, ProSchemaValueEnumType | React.ReactNode>;
+
+export type BaseProFieldFC = {
   // 值的类型
   text: React.ReactNode;
 
@@ -63,17 +66,13 @@ export type BasicProFieldFC = {
 
 export type ProFieldFCMode = 'read' | 'update' | 'edit';
 
-export type ProSchemaValueEnumMap = Map<React.ReactText, ProSchemaValueEnumType | React.ReactNode>;
-
-export type ProSchemaValueEnumObj = Record<string, ProSchemaValueEnumType | React.ReactNode>;
-
 //
 export type ProFieldFCRenderProps = {
   mode?: ProFieldFCMode;
   placeholder?: string | string[];
   value?: any;
   onChange?: (value: any) => void;
-} & BasicProFieldFC;
+} & BaseProFieldFC;
 
 export type ProRenderFieldPropsType = {
   render?:
@@ -193,7 +192,7 @@ export function useIntl(): IntlType {
   noteOnce(
     !!context.intl,
     `
-为了提升兼容性  
+为了提升兼容性
 <IntlProvider value={zhCNIntl}/>
 需要修改为:
 <ConfigProvider
@@ -225,3 +224,5 @@ We will remove it in the next version
   }
   return context.intl || zhCNIntl;
 }
+
+export default ConfigContext;

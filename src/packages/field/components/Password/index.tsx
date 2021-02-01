@@ -3,7 +3,6 @@ import { Input, Space } from 'antd';
 import { EyeOutlined, EyeInvisibleOutlined } from '@ant-design/icons';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import { useIntl } from '@/packages/provider';
-
 import type { ProFieldFC } from '../../index';
 
 const FieldPassword: ProFieldFC<{

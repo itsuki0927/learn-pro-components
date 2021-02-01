@@ -1,10 +1,11 @@
-import { DatePicker, ConfigProvider } from 'antd';
-import React, { useState, useContext } from 'react';
-import moment from 'moment';
+import { FieldLabel } from '@/packages/utils';
 import { useIntl } from '@ant-design/pro-provider';
 import { parseValueToMoment } from '@ant-design/pro-utils';
+import { ConfigProvider, DatePicker } from 'antd';
 import SizeContext from 'antd/lib/config-provider/SizeContext';
 import type { DatePickerProps } from 'antd/lib/date-picker';
+import moment from 'moment';
+import React, { useContext, useState } from 'react';
 import type { ProFieldFC } from '../../index';
 import './index.less';
 
@@ -54,7 +55,70 @@ const FieldDatePicker: ProFieldFC<{
       placeholder = intl.getMessage('tableForm.selectPlaceholder', '请选择'),
     } = fieldProps;
     const momentValue = parseValueToMoment(value) as moment.Moment;
+    if (light) {
+      const valueStr: string = (momentValue && momentValue.format(format)) || '';
+      dom = (
+        <div
+          className={`${prefixCls}-light`}
+          onClick={() => {
+            setOpen(true);
+          }}
+        >
+          <DatePicker
+            picker={picker}
+            showTime={showTime}
+            format={format}
+            ref={ref}
+            {...fieldProps}
+            value={momentValue}
+            onChange={(v) => {
+              if (onChange) {
+                onChange(v);
+              }
+              setTimeout(() => {
+                setOpen(false);
+              }, 0);
+            }}
+            onOpenChange={setOpen}
+            open={open}
+          />
+          <FieldLabel
+            label={label}
+            disabled={disabled}
+            placeholder={placeholder}
+            size={size}
+            value={valueStr}
+            onClear={() => {
+              if (onChange) {
+                onChange(null);
+              }
+            }}
+            allowClear={allowClear}
+            bordered={bordered}
+            expanded={open}
+          />
+        </div>
+      );
+    } else {
+      dom = (
+        <DatePicker
+          picker={picker}
+          showTime={showTime}
+          format={format}
+          placeholder={placeholder}
+          bordered={plain === undefined ? true : !plain}
+          ref={ref}
+          {...fieldProps}
+          value={momentValue}
+        />
+      );
+    }
+    if (renderFormItem) {
+      return renderFormItem(text, { mode, ...fieldProps }, dom);
+    }
+    return dom;
   }
+  return null;
 };
 
 export default React.forwardRef(FieldDatePicker);

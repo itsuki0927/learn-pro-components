@@ -1,23 +1,22 @@
 @import '~antd/es/style/themes/default.less';
 
-.main {
-  width: 328px;
-  margin: 0 auto;
-  @media screen and (max-width: @screen-sm) {
-    width: 95%;
-    max-width: 328px;
+.login {
+  :global {
+    .ant-tabs .ant-tabs-bar {
+      margin-bottom: 24px;
+      text-align: center;
+      border-bottom: 0;
+    }
   }
 
-  :global {
-    .@{ant-prefix}-tabs-nav-list {
-      margin: auto;
-      font-size: 16px;
-    }
+  .getCaptcha {
+    display: block;
+    width: 100%;
   }
 
   .icon {
     margin-left: 16px;
-    color: rgba(0, 0, 0, 0.2);
+    color: @text-color-secondary;
     font-size: 24px;
     vertical-align: middle;
     cursor: pointer;
@@ -32,13 +31,19 @@
     margin-top: 24px;
     line-height: 22px;
     text-align: left;
+
     .register {
       float: right;
     }
   }
 
   .prefixIcon {
-    color: @primary-color;
+    color: @disabled-color;
     font-size: @font-size-base;
+  }
+
+  .submit {
+    width: 100%;
+    margin-top: 24px;
   }
 }

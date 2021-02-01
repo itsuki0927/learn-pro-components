@@ -2,7 +2,6 @@ import type { ReactNode } from 'react';
 import React, { useMemo } from 'react';
 import { InputNumber } from 'antd';
 import { toNumber } from 'lodash';
-
 import { getColorByRealValue, getSymbolByRealValue, getRealTextWithPrecision } from './util';
 import type { ProFieldFC } from '../../index';
 

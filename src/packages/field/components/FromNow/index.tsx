@@ -3,7 +3,7 @@ import { parseValueToMoment } from '@/packages/utils';
 import { DatePicker, Tooltip } from 'antd';
 import moment from 'moment';
 import React from 'react';
-import { ProFieldFC } from '../..';
+import type { ProFieldFC } from '../..';
 
 const FieldFromNow: ProFieldFC<{ text: string; format?: string }> = ({
   text,

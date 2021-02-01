@@ -1,7 +1,7 @@
+import { useIntl } from '@/packages/provider';
 import { Input } from 'antd';
 import React, { useImperativeHandle, useRef } from 'react';
-import { useIntl } from '@/packages/provider';
-import { ProFieldFC } from '../..';
+import type { ProFieldFC } from '../..';
 
 const FieldText: ProFieldFC<{ text: string }> = (
   { text, mode, render, renderFormItem, fieldProps },

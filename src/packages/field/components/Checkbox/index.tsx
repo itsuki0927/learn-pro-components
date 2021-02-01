@@ -1,9 +1,10 @@
 import { ConfigProvider, Space, Spin, Checkbox } from 'antd';
-import { CheckboxGroupProps } from 'antd/lib/checkbox';
+import type { CheckboxGroupProps } from 'antd/lib/checkbox';
 import React, { useContext, useImperativeHandle, useRef } from 'react';
 import classNames from 'classnames';
-import { ProFieldFC } from '../..';
-import { FieldSelectProps, ObjectToMap, proFieldParsingText, useFieldFetchData } from '../Select';
+import type { ProFieldFC } from '../..';
+import type { FieldSelectProps } from '../Select';
+import { ObjectToMap, proFieldParsingText, useFieldFetchData } from '../Select';
 
 export type GroupProps = {
   layout?: 'horizontal' | 'vertical';
@@ -18,6 +19,7 @@ const FieldCheckbox: ProFieldFC<GroupProps> = (
   const layoutClassName = getPrefixCls('pro-field-checkbox');
   const [loading, options, fetchData] = useFieldFetchData(rest);
   const checkBoxRef = useRef();
+
   useImperativeHandle(ref, () => ({
     ...(checkBoxRef.current || {}),
     fetchData: () => fetchData(),
