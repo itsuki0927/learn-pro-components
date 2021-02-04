@@ -71,3 +71,19 @@
 
 - Captcha
 - Checkbox
+- DatePicker
+- DateRangePicker
+- DateTimePicker
+- DateTimeRangePicker
+- Digit
+- Group
+- Radio
+- Rate
+- Select
+- Slider
+- Submitter
+- Switch
+- Text
+- TextArea
+- UploadButton
+- UploadDragger
