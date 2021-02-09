@@ -4,7 +4,6 @@ import type {
   ProFieldValueEnumType,
   ProSchemaValueEnumMap,
   ProSchemaValueEnumObj,
-  ProSchemaValueEnumType,
 } from '@/packages/utils';
 import { useDeepCompareEffect } from '@/packages/utils';
 import { Space, Spin } from 'antd';
@@ -30,7 +29,7 @@ let testId = 0;
 export type FieldSelectProps = {
   text: string;
   // 值的枚举
-  valueEnum?: ProSchemaValueEnumType;
+  valueEnum?: ProFieldValueEnumType;
 
   // 从服务器读取选项
   request?: ProFieldRequestData;
@@ -116,11 +115,14 @@ export const useFieldFetchData = (
   const proFieldKeyRef = useRef(cacheKey);
 
   const getOptionsFormValueEnum = useCallback((valueEnum) => {
-    return proFieldParsingValueEnumToArray(ObjectToMap(valueEnum)).map(({ value, text }) => ({
-      label: text,
-      value,
-      key: value,
-    }));
+    return proFieldParsingValueEnumToArray(ObjectToMap(valueEnum)).map(
+      ({ value, text, ...rest }) => ({
+        label: text,
+        value,
+        key: value,
+        ...rest,
+      }),
+    );
   }, []);
 
   const [options, setOptions] = useMergedState<SelectProps<any>['options']>(

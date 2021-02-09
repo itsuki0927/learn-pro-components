@@ -28,6 +28,7 @@ import FieldSwitch from './components/Switch';
 import FieldDigit from './components/Digit';
 import FieldSecond from './components/Second';
 import FieldRadio from './components/Radio';
+import FieldImage from './components/Image';
 
 import type { ProFieldValueObjectType, ProFieldValueType, ProFieldTextType } from '../utils';
 
@@ -67,8 +68,8 @@ const defaultRenderTextByObject = (
   if (valueType.type === 'money') {
     return (
       <FieldMoney
-        locale={valueType.locale}
         {...props}
+        locale={valueType.locale}
         fieldProps={pickFormItemProps}
         text={text as number}
       />
@@ -85,6 +86,9 @@ const defaultRenderTextByObject = (
         showColor={valueType.showColor}
       />
     );
+  }
+  if (valueType.type === 'image') {
+    return <FieldImage {...props} text={text as string} width={valueType.width} />;
   }
   return text;
 };
@@ -277,6 +281,9 @@ const defaultRenderText = (
     return <FieldPassword text={text as string} {...props} />;
   }
 
+  if (valueType === 'image') {
+    return <FieldImage text={text as string} {...props} />;
+  }
   return <FieldText text={text as string} {...props} />;
 };
 
@@ -325,6 +332,7 @@ export {
   FieldDatePicker,
   FieldRangePicker,
   FieldCode,
+  FieldImage,
   FieldTimePicker,
   FieldText,
   FieldStatus,

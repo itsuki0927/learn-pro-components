@@ -24,6 +24,7 @@ import transformKeySubmitValue from './transformKeySubmitValue';
 import parseValueToMoment from './parseValueToMoment';
 import useDeepCompareEffect from './hooks/useDeepCompareEffect';
 import useDocumentTitle from './hooks/useDocumentTitle';
+import useMountMergeState from './hooks/useMountMergeState';
 
 /**
  * type
@@ -78,7 +79,6 @@ export {
   transformKeySubmitValue,
   conversionSubmitValue,
   parseValueToMoment,
-  useDocumentTitle,
   isImg,
   isNil,
   isDropdownValueType,
@@ -94,4 +94,6 @@ export {
   useDeepCompareEffect,
   usePrevious,
   useDebounceFn,
+  useDocumentTitle,
+  useMountMergeState,
 };

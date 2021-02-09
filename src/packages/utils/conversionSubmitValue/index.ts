@@ -20,7 +20,7 @@ const dateFormatterMap = {
 };
 
 function isObject(o: any) {
-  return Object.toString.call(o) === '[object Object]';
+  return Object.prototype.toString.call(o) === '[object Object]';
 }
 
 export function isPlainObject(o: { constructor: any }) {

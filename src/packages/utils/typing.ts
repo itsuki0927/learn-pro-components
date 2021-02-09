@@ -49,7 +49,8 @@ export type ProFieldValueType =
   | 'code'
   | 'switch'
   | 'fromNow'
-  | 'jsonCode';
+  | 'jsonCode'
+  | 'image';
 
 export type ProFieldRequestData<U = any> = (
   params: U,
@@ -90,13 +91,14 @@ export type ProFieldValueEnumType = ProSchemaValueEnumMap | ProSchemaValueEnumOb
 export type ProFieldTextType = React.ReactNode | React.ReactNode[] | Moment | Moment[];
 
 export type ProFieldValueObjectType = {
-  type: 'progress' | 'money' | 'percent';
+  type: 'progress' | 'money' | 'percent' | 'image';
   status?: 'normal' | 'actice' | 'success' | 'exception' | undefined;
   locale?: string;
   showSymbol?: boolean;
   showColor?: boolean;
   precision?: number;
   request?: ProFieldRequestData;
+  width?: number;
 };
 
 export type SearchTransformKeyFn = (

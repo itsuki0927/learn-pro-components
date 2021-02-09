@@ -19,6 +19,17 @@
         name: 'field',
         component: './field',
       },
+      {
+        path: '/form',
+        name: 'form',
+        routes: [
+          {
+            path: '/form/pro-form',
+            name: 'pro-form',
+            component: './form/pro-form',
+          },
+        ],
+      },
     ],
   },
   {

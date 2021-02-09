@@ -44,7 +44,7 @@ const FieldCheckbox: ProFieldFC<GroupProps> = (
     return <Space> {dom}</Space>;
   }
 
-  if (mode === 'edit') {
+  if (mode === 'edit' || mode === 'update') {
     const dom = (
       <Checkbox.Group
         {...rest.fieldProps}

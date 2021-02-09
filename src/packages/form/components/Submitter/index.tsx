@@ -3,7 +3,6 @@ import type { FormInstance } from 'antd/lib/form';
 import { Button, Space } from 'antd';
 import { useIntl } from '@/packages/provider';
 import type { ButtonProps } from 'antd/lib/button';
-import { render } from 'react-dom';
 
 export type SearchConfig = {
   resetText?: React.ReactNode;
@@ -30,7 +29,15 @@ const Submitter: FC<SubmitterProps & { form: FormInstance }> = (props) => {
     return null;
   }
 
-  const { form, onSubmit, onReset, submitButtonProps, resetButtonProps, searchConfig = {} } = props;
+  const {
+    form,
+    onSubmit,
+    onReset,
+    submitButtonProps,
+    resetButtonProps,
+    searchConfig = {},
+    render,
+  } = props;
 
   const {
     submitText = intl.getMessage('tableForm.submit', '提交'),

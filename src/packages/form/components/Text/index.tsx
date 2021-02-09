@@ -7,15 +7,21 @@ import createField from '../../BaseForm/createField';
 const valueType = 'text';
 
 const ProFormText = createField<ProFormItemProps<InputProps>>(
-  React.forwardRef(({ fieldProps, proFieldProps }, ref) => (
-    <ProField
-      mode="edit"
-      ref={ref}
-      valueType={valueType}
-      fieldProps={fieldProps}
-      {...proFieldProps}
-    />
-  )),
+  React.forwardRef(({ fieldProps, proFieldProps }, ref) => {
+    console.log('--------------------------------');
+    console.log('fieldProps:', fieldProps);
+    console.log('proFieldProps:', proFieldProps);
+    console.log('--------------------------------');
+    return (
+      <ProField
+        mode="edit"
+        ref={ref}
+        valueType={valueType}
+        fieldProps={fieldProps}
+        {...proFieldProps}
+      />
+    );
+  }),
   { valueType },
 );
 

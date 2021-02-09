@@ -1,5 +1,6 @@
-import React, { useContext } from 'react';
+import React, { FC, useContext } from 'react';
 import { noteOnce } from 'rc-util/lib/warning';
+import { ConfigProvider as AntdConfigProvider } from 'antd';
 
 import arEG from './locale/ar_EG';
 import zhCN from './locale/zh_CN';
@@ -224,5 +225,49 @@ We will remove it in the next version
   }
   return context.intl || zhCNIntl;
 }
+
+const { Consumer: ConfigConsumer, Provider: ConfigProvider } = ConfigContext;
+
+const findIntlKeyByAntdLocaleKey = (localeKey: string | undefined) => {
+  if (!localeKey) {
+    return 'zh-CN';
+  }
+  const localeName = localeKey.toLocaleLowerCase();
+  return (
+    intlMapKeys.find((intlKey) => {
+      const LowerCaseKey = intlKey.toLocaleLowerCase();
+      return LowerCaseKey.includes(localeName);
+    }) || 'zh-CN'
+  );
+};
+
+const ConfigProviderWrap: FC<Record<string, unknown>> = ({ children }) => {
+  const { locale } = useContext(AntdConfigProvider.ConfigContext);
+  return (
+    <ConfigConsumer>
+      {(value) => {
+        const localeName = locale?.locale;
+        const key = findIntlKeyByAntdLocaleKey(localeName);
+        // antd 的 key 存在的时候以 antd 的为主
+        const intl =
+          localeName && value.intl?.locale === 'default'
+            ? intlMap[key]
+            : value.intl || intlMap[key];
+        return (
+          <ConfigProvider
+            value={{
+              ...value,
+              intl: intl || zhCNIntl,
+            }}
+          >
+            {children}
+          </ConfigProvider>
+        );
+      }}
+    </ConfigConsumer>
+  );
+};
+
+export { ConfigConsumer, ConfigProvider, ConfigProviderWrap, createIntl };
 
 export default ConfigContext;

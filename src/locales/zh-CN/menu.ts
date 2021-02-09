@@ -51,4 +51,5 @@ export default {
   'menu.editor.koni': '拓扑编辑器',
 
   'menu.field': '字段',
+  'menu.form.pro-form': '超级表单',
 };
