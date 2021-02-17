@@ -1,22 +1,21 @@
-import React, { FC, useContext } from 'react';
-import { noteOnce } from 'rc-util/lib/warning';
 import { ConfigProvider as AntdConfigProvider } from 'antd';
-
+import { noteOnce } from 'rc-util/lib/warning';
+import React, { FC, useContext } from 'react';
 import arEG from './locale/ar_EG';
-import zhCN from './locale/zh_CN';
-import enUS from './locale/en_US';
-import viVN from './locale/vi_VN';
-import itIT from './locale/it_IT';
-import esES from './locale/es_ES';
-import jaJP from './locale/ja_JP';
-import ruRU from './locale/ru_RU';
-import msMY from './locale/ms_MY';
-import zhTW from './locale/zh_TW';
-import frFR from './locale/fr_FR';
-import ptBR from './locale/pt_BR';
-import koKR from './locale/ko_KR';
-import idID from './locale/id_ID';
 import deDE from './locale/de_DE';
+import enUS from './locale/en_US';
+import esES from './locale/es_ES';
+import frFR from './locale/fr_FR';
+import idID from './locale/id_ID';
+import itIT from './locale/it_IT';
+import jaJP from './locale/ja_JP';
+import koKR from './locale/ko_KR';
+import msMY from './locale/ms_MY';
+import ptBR from './locale/pt_BR';
+import ruRU from './locale/ru_RU';
+import viVN from './locale/vi_VN';
+import zhCN from './locale/zh_CN';
+import zhTW from './locale/zh_TW';
 
 export type IntlType = {
   locale: string;
@@ -174,6 +173,7 @@ export {
   intlMap,
   intlMapKeys,
 };
+export { ConfigConsumer, ConfigProvider, ConfigProviderWrap, createIntl };
 
 export type ConfigContextPropsType = {
   intl: IntlType;
@@ -267,7 +267,5 @@ const ConfigProviderWrap: FC<Record<string, unknown>> = ({ children }) => {
     </ConfigConsumer>
   );
 };
-
-export { ConfigConsumer, ConfigProvider, ConfigProviderWrap, createIntl };
 
 export default ConfigContext;

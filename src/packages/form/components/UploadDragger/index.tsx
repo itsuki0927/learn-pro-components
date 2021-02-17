@@ -1,9 +1,9 @@
-import React, { FC } from 'react';
+import { InboxOutlined } from '@ant-design/icons';
 import { Upload } from 'antd';
 import type { DraggerProps, UploadProps } from 'antd/lib/upload';
-import { InboxOutlined } from '@ant-design/icons';
-import type { ProFormItemProps } from '../../interface';
+import React, { FC } from 'react';
 import createField from '../../BaseForm/createField';
+import type { ProFormItemProps } from '../../interface';
 
 export type ProFormDraggerProps = ProFormItemProps<DraggerProps> & {
   icon?: React.ReactNode;

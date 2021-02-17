@@ -1,8 +1,8 @@
-import React from 'react';
-import { Input, Space } from 'antd';
-import { EyeOutlined, EyeInvisibleOutlined } from '@ant-design/icons';
-import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import { useIntl } from '@/packages/provider';
+import { EyeInvisibleOutlined, EyeOutlined } from '@ant-design/icons';
+import { Input, Space } from 'antd';
+import useMergedState from 'rc-util/lib/hooks/useMergedState';
+import React from 'react';
 import type { ProFieldFC } from '../../index';
 
 const FieldPassword: ProFieldFC<{

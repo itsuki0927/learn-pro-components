@@ -1,4 +1,4 @@
-import { Progress, InputNumber } from 'antd';
+import { InputNumber, Progress } from 'antd';
 import { toNumber } from 'lodash';
 import React, { useMemo } from 'react';
 import type { ProFieldFC } from '../../index';

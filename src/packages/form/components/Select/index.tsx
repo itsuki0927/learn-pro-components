@@ -1,10 +1,10 @@
-import React from 'react';
-import type { SelectProps } from 'antd/lib/select';
 import ProField from '@/packages/field';
 import type { ProSchema } from '@/packages/utils';
 import { runFunction } from '@/packages/utils';
-import type { ProFormItemProps } from '../../interface';
+import type { SelectProps } from 'antd/lib/select';
+import React from 'react';
 import createField from '../../BaseForm/createField';
+import type { ProFormItemProps } from '../../interface';
 
 const valueType = 'select';
 

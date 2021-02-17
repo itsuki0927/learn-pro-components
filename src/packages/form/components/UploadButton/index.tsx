@@ -1,10 +1,10 @@
-import React from 'react';
-import { Upload, Button } from 'antd';
-import type { UploadProps } from 'antd/lib/upload';
-import type { ButtonProps } from 'antd/lib/button';
 import { UploadOutlined } from '@ant-design/icons';
-import type { ProFormItemProps } from '../../interface';
+import { Button, Upload } from 'antd';
+import type { ButtonProps } from 'antd/lib/button';
+import type { UploadProps } from 'antd/lib/upload';
+import React from 'react';
 import createField from '../../BaseForm/createField';
+import type { ProFormItemProps } from '../../interface';
 
 export type ProFormDraggerProps = ProFormItemProps<UploadProps> & {
   icon?: React.ReactNode;

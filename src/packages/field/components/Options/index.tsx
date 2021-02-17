@@ -1,5 +1,5 @@
+import { ConfigProvider, Space } from 'antd';
 import React, { useContext } from 'react';
-import { Space, ConfigProvider } from 'antd';
 import type { ProFieldFC } from '../../index';
 
 const FieldOptions: ProFieldFC<{}> = ({ text, mode, render, fieldProps }) => {

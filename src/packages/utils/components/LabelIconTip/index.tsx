@@ -1,7 +1,7 @@
-import React, { useContext } from 'react';
 import { InfoCircleOutlined } from '@ant-design/icons';
-import { Tooltip, Space, ConfigProvider } from 'antd';
+import { ConfigProvider, Space, Tooltip } from 'antd';
 import type { TooltipProps } from 'antd/lib/tooltip';
+import React, { useContext } from 'react';
 import './index.less';
 
 const LabelIconTip: React.FC<{

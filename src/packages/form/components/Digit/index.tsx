@@ -1,8 +1,8 @@
-import React from 'react';
-import type { InputNumberProps } from 'antd/lib/input-number';
 import ProField from '@/packages/field';
-import type { ProFormItemProps } from '../../interface';
+import type { InputNumberProps } from 'antd/lib/input-number';
+import React from 'react';
 import createField from '../../BaseForm/createField';
+import type { ProFormItemProps } from '../../interface';
 
 const valueType = 'digit';
 

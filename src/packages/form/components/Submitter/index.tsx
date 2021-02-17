@@ -1,8 +1,8 @@
-import React, { FC } from 'react';
-import type { FormInstance } from 'antd/lib/form';
-import { Button, Space } from 'antd';
 import { useIntl } from '@/packages/provider';
+import { Button, Space } from 'antd';
 import type { ButtonProps } from 'antd/lib/button';
+import type { FormInstance } from 'antd/lib/form';
+import React, { FC } from 'react';
 
 export type SearchConfig = {
   resetText?: React.ReactNode;

@@ -1,6 +1,6 @@
-import React from 'react';
-import { InputNumber } from 'antd';
 import { useIntl } from '@/packages/provider';
+import { InputNumber } from 'antd';
+import React from 'react';
 import type { ProFieldFC } from '../../index';
 
 const moneyIntl = new Intl.NumberFormat('zh-Hans-CN', {

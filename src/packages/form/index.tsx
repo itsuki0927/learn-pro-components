@@ -12,11 +12,11 @@ import ProFormRate from './components/Rate';
 import ProFormSlider from './components/Slider';
 import ProFormUploadDragger from './components/UploadDragger';
 import ProFormUploadButton from './components/UploadButton';
-// import ProFormField from './components/Field';
+import ProFormField from './components/Field';
 import ProFormSelect from './components/Select';
 import ProFormDigit from './components/Digit';
-// import type { ProFormFieldSetProps } from './components/FieldSet';
-// import ProFormFieldSet from './components/FieldSet';
+import type { ProFormFieldSetProps } from './components/FieldSet';
+import ProFormFieldSet from './components/FieldSet';
 import type { ProFormCaptchaProps } from './components/Captcha';
 import ProFormCaptcha from './components/Captcha';
 
@@ -42,7 +42,7 @@ export type {
   // StepFormProps,
   // StepsFormProps,
   // QueryFilterProps,
-  // ProFormFieldSetProps,
+  ProFormFieldSetProps,
 };
 export {
   // controls
@@ -53,7 +53,7 @@ export {
   ProFormText,
   ProFormTextArea,
   ProFormSwitch,
-  // ProFormField,
+  ProFormField,
   ProFormSelect,
   ProFormDigit,
   ProFormCheckbox,
@@ -62,7 +62,7 @@ export {
   ProFormUploadButton,
   ProFormUploadDragger,
   ProFormSlider,
-  // ProFormFieldSet,
+  ProFormFieldSet,
   ProFormCaptcha,
   ProFormDateTimeRangePicker,
   // layouts

@@ -1,9 +1,9 @@
-import React, { useContext } from 'react';
-import { DownOutlined, CloseOutlined } from '@ant-design/icons';
-import classNames from 'classnames';
-import type { SizeType } from 'antd/lib/config-provider/SizeContext';
-import { ConfigProvider } from 'antd';
 import { useIntl } from '@/packages/provider';
+import { CloseOutlined, DownOutlined } from '@ant-design/icons';
+import { ConfigProvider } from 'antd';
+import type { SizeType } from 'antd/lib/config-provider/SizeContext';
+import classNames from 'classnames';
+import React, { useContext } from 'react';
 import './index.less';
 
 export type FieldLabelProps = {
@@ -32,7 +32,6 @@ const FieldLabel: React.FC<FieldLabelProps> = (props) => {
     size = 'middle',
     ellipsis,
     disabled,
-    expanded,
     allowClear = true,
     formatter,
     className,

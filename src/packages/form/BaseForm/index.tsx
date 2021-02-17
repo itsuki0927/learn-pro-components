@@ -1,8 +1,3 @@
-import type { FC } from 'react';
-import React, { useRef, useEffect, useState } from 'react';
-import { Form } from 'antd';
-import type { FormProps, FormInstance } from 'antd/lib/form/Form';
-import type { FormItemProps } from 'antd/lib/form';
 import { ConfigProviderWrap } from '@/packages/provider';
 import type { ProFieldValueType, SearchTransformKeyFn } from '@/packages/utils';
 import {
@@ -10,13 +5,18 @@ import {
   transformKeySubmitValue,
   useMountMergeState,
 } from '@/packages/utils';
-import SizeContext from 'antd/lib/config-provider/SizeContext';
-import namePathSet from 'rc-util/lib/utils/set';
+import { Form } from 'antd';
 import type { ButtonProps } from 'antd/lib/button';
-import FieldContext from '../FieldContext';
+import SizeContext from 'antd/lib/config-provider/SizeContext';
+import type { FormItemProps } from 'antd/lib/form';
+import type { FormInstance, FormProps } from 'antd/lib/form/Form';
+import namePathSet from 'rc-util/lib/utils/set';
+import type { FC } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import type { SubmitterProps } from '../components/Submitter';
 import Submitter from '../components/Submitter';
-import type { GroupProps, FieldProps } from '../interface';
+import FieldContext from '../FieldContext';
+import type { FieldProps, GroupProps } from '../interface';
 
 export type CommonFormProps = {
   submitter?: SubmitterProps<{ form?: FormInstance<any> }> | false;
@@ -39,7 +39,6 @@ export type BaseFormProps = {
   CommonFormProps;
 
 const BaseForm: FC<BaseFormProps> = (props) => {
-  console.log('BaseForm:', props);
   const {
     children,
     contentRender,
@@ -87,7 +86,6 @@ const BaseForm: FC<BaseFormProps> = (props) => {
 
   useEffect(() => {
     if (isUpdate) {
-      console.log('isUpdate useEffect');
       onInit?.();
     }
   }, [isUpdate]);
@@ -124,12 +122,11 @@ const BaseForm: FC<BaseFormProps> = (props) => {
               if (!rest.onFinish) {
                 return;
               }
-              console.log('fieldsValueType:', fieldsValueType.current);
               setLoading({ delay: 100 });
               await rest.onFinish(
                 // 然后在进行key的转换
                 transformKeySubmitValue(
-                  // 先转换value(Moment -> string|number、去除undefind)
+                  // 先转换value(Moment -> string|number、去除undefined)
                   conversionSubmitValue(values, dateFormatter, fieldsValueType.current),
                   transformKeyRef.current,
                 ),

@@ -1,13 +1,12 @@
-import React, { useEffect, useContext, FC } from 'react';
-import { Form } from 'antd';
 import type { ProFieldValueType, SearchTransformKeyFn } from '@/packages/utils';
 import { pickProFormItemProps } from '@ant-design/pro-utils';
+import { Form } from 'antd';
+import SizeContext from 'antd/lib/config-provider/SizeContext';
 import type { FormItemProps } from 'antd/lib/form';
 import classnames from 'classnames';
 import { noteOnce } from 'rc-util/lib/warning';
-import SizeContext from 'antd/lib/config-provider/SizeContext';
+import React, { FC, useContext, useEffect } from 'react';
 import FieldContext from '../FieldContext';
-// import LightWrapper from './LightWrapper';
 import type { ProFormItemProps } from '../interface';
 import LightWrapper from './LightWrapper';
 
@@ -52,7 +51,6 @@ function createField<P extends ProFormItemProps = any>(
   config?: ProFormItemCreatorProps,
 ) {
   const FieldWithContext: FC<P> = (props: P & ExtendsProps) => {
-    console.group('==========createField==========');
     const size = useContext(SizeContext);
     const {
       label,
@@ -77,18 +75,16 @@ function createField<P extends ProFormItemProps = any>(
       valuePropName = 'value',
       ...defaultFormItemProps
     } = config || {};
-    console.log('props:', props);
     const { fieldProps, formItemProps, setFieldValueType } = useContext(FieldContext);
-    console.log('config:', config);
+    // rest挑选出Form.Item的props
     const restFormItemProps = pickProFormItemProps(rest);
-    console.log('restFormItemProps:', restFormItemProps);
     const formNeedProps = {
       value: (rest as any).value,
       onChange: (rest as any).onChange,
     };
     const realFieldProps = {
       ...(ignoreFormItem ? formNeedProps : {}),
-      disabeld: props.disabled,
+      disabled: props.disabled,
       placeholder: proFieldProps?.light ? placeholder || label : placeholder,
       ...(fieldProps || {}),
       ...(rest.fieldProps || {}),
@@ -97,7 +93,6 @@ function createField<P extends ProFormItemProps = any>(
         ...fieldProps?.style,
       },
     } as any;
-    console.log('realFieldProps:', realFieldProps);
     const otherProps = {
       messageVariables,
       ...defaultFormItemProps,
@@ -105,14 +100,12 @@ function createField<P extends ProFormItemProps = any>(
       ...restFormItemProps,
       ...propsFormItemProps,
     };
-    console.log('otherProps:', otherProps);
     noteOnce(
       // eslint-disable-next-line @typescript-eslint/dot-notation
       !rest['defaultValue'],
       '请不要在 Form 中使用 defaultXXX。如果需要默认值请使用 initialValues 和 initialValue。',
     );
 
-    console.groupEnd();
     useEffect(() => {
       if (!setFieldValueType || !props.name) {
         return;
@@ -173,6 +166,7 @@ function createField<P extends ProFormItemProps = any>(
       </Form.Item>
     );
   };
+
   return FieldWithContext as ProFormComponent<P, ExtendsProps>;
 }
 

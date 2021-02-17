@@ -1,8 +1,8 @@
-import React from 'react';
 import ProField from '@/packages/field';
 import type { RateProps } from 'antd/lib/rate';
-import type { ProFormItemProps } from '../../interface';
+import React from 'react';
 import createField from '../../BaseForm/createField';
+import type { ProFormItemProps } from '../../interface';
 
 const valueType = 'rate';
 /**

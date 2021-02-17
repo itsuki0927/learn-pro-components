@@ -1,5 +1,5 @@
-import { useRef, useEffect } from 'react';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
+import { useEffect, useRef } from 'react';
 
 type Dispatch<A> = (value: A) => void;
 

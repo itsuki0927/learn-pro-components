@@ -1,7 +1,6 @@
-import React, { FC, useContext } from 'react';
-import { Button, ConfigProvider } from 'antd';
 import { useIntl } from '@/packages/provider';
-
+import { Button, ConfigProvider } from 'antd';
+import React, { FC, useContext } from 'react';
 import './index.less';
 
 export type DropdownFooterProps = {
@@ -20,7 +19,7 @@ const DropdownFooter: FC<DropdownFooterProps> = (props) => {
     <div
       className={prefixCls}
       onClick={(e) =>
-        (e.target as Element).getAttribute('data-type') === 'confoirm' && e.stopPropagation()
+        (e.target as Element).getAttribute('data-type') === 'confirm' && e.stopPropagation()
       }
     >
       <Button

@@ -1,9 +1,9 @@
-import type { ReactNode } from 'react';
-import React, { useMemo } from 'react';
 import { InputNumber } from 'antd';
 import { toNumber } from 'lodash';
-import { getColorByRealValue, getSymbolByRealValue, getRealTextWithPrecision } from './util';
+import type { ReactNode } from 'react';
+import React, { useMemo } from 'react';
 import type { ProFieldFC } from '../../index';
+import { getColorByRealValue, getRealTextWithPrecision, getSymbolByRealValue } from './util';
 
 export type PercentPropInt = {
   prefix?: ReactNode;

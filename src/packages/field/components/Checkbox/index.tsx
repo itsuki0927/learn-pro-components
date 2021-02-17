@@ -1,7 +1,7 @@
-import { ConfigProvider, Space, Spin, Checkbox } from 'antd';
+import { Checkbox, ConfigProvider, Space, Spin } from 'antd';
 import type { CheckboxGroupProps } from 'antd/lib/checkbox';
-import React, { useContext, useImperativeHandle, useRef } from 'react';
 import classNames from 'classnames';
+import React, { useContext, useImperativeHandle, useRef } from 'react';
 import type { ProFieldFC } from '../..';
 import type { FieldSelectProps } from '../Select';
 import { ObjectToMap, proFieldParsingText, useFieldFetchData } from '../Select';

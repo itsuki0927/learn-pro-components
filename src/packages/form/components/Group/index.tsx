@@ -1,5 +1,5 @@
+import { ConfigProvider, Space } from 'antd';
 import React, { useContext } from 'react';
-import { Space, ConfigProvider } from 'antd';
 import FieldContext from '../../FieldContext';
 import type { GroupProps } from '../../interface';
 import './index.less';

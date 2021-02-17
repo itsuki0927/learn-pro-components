@@ -1,36 +1,34 @@
-import type { BaseProFieldFC, ProRenderFieldPropsType, ProFieldFCRenderProps } from '../provider';
-import React, { useContext } from 'react';
-import { Avatar } from 'antd';
-
-import { pickProProps, omitUndefined } from '@/packages/utils';
 import ConfigContext, { useIntl } from '@/packages/provider';
-import FieldPercent from './components/Percent';
-import FieldIndexColumn from './components/IndexColumn';
-import FieldProgress from './components/Progress';
-import FieldMoney from './components/Money';
-import FieldDatePicker from './components/DatePicker';
-import FieldFromNow from './components/FromNow';
-import FieldRangePicker from './components/RangePicker';
+import { omitUndefined, pickProProps } from '@/packages/utils';
+import { Avatar } from 'antd';
+import React, { useContext } from 'react';
+import type { BaseProFieldFC, ProFieldFCRenderProps, ProRenderFieldPropsType } from '../provider';
+import type { ProFieldTextType, ProFieldValueObjectType, ProFieldValueType } from '../utils';
+import FieldCheckbox from './components/Checkbox';
 import FieldCode from './components/Code';
-import FieldTimePicker from './components/TimePicker';
-import FieldText from './components/Text';
-import FieldTextArea from './components/TextArea';
-import FieldPassword from './components/Password';
-import FieldStatus from './components/Status';
+import FieldDatePicker from './components/DatePicker';
+import FieldDigit from './components/Digit';
+import FieldFromNow from './components/FromNow';
+import FieldImage from './components/Image';
+import FieldIndexColumn from './components/IndexColumn';
+import FieldMoney from './components/Money';
 import FieldOptions from './components/Options';
+import FieldPassword from './components/Password';
+import FieldPercent from './components/Percent';
+import FieldProgress from './components/Progress';
+import FieldRadio from './components/Radio';
+import FieldRangePicker from './components/RangePicker';
+import FieldRate from './components/Rate';
+import FieldSecond from './components/Second';
 import FieldSelect, {
   proFieldParsingText,
   proFieldParsingValueEnumToArray,
 } from './components/Select';
-import FieldCheckbox from './components/Checkbox';
-import FieldRate from './components/Rate';
+import FieldStatus from './components/Status';
 import FieldSwitch from './components/Switch';
-import FieldDigit from './components/Digit';
-import FieldSecond from './components/Second';
-import FieldRadio from './components/Radio';
-import FieldImage from './components/Image';
-
-import type { ProFieldValueObjectType, ProFieldValueType, ProFieldTextType } from '../utils';
+import FieldText from './components/Text';
+import FieldTextArea from './components/TextArea';
+import FieldTimePicker from './components/TimePicker';
 
 export type ProFieldEmptyText = string | false;
 
@@ -102,6 +100,7 @@ const defaultRenderText = (
   if (typeof valueType === 'object') {
     return defaultRenderTextByObject(text, valueType, props);
   }
+
   const { mode = 'read', emptyText = '-' } = props;
 
   const customValueTypeConfig = valueTypeMap[valueType as string];
@@ -284,10 +283,28 @@ const defaultRenderText = (
   if (valueType === 'image') {
     return <FieldImage text={text as string} {...props} />;
   }
+
   return <FieldText text={text as string} {...props} />;
 };
 
 export { defaultRenderText };
+export {
+  FieldPercent,
+  FieldIndexColumn,
+  FieldProgress,
+  FieldMoney,
+  FieldDatePicker,
+  FieldRangePicker,
+  FieldCode,
+  FieldImage,
+  FieldTimePicker,
+  FieldText,
+  FieldStatus,
+  FieldSelect,
+  proFieldParsingText,
+  proFieldParsingValueEnumToArray,
+};
+export type { ProFieldValueType };
 
 export type ProFieldPropsType = {
   text?: ProFieldTextType;
@@ -323,24 +340,5 @@ const ProField: React.ForwardRefRenderFunction<any, ProFieldPropsType> = (
     </>
   );
 };
-
-export {
-  FieldPercent,
-  FieldIndexColumn,
-  FieldProgress,
-  FieldMoney,
-  FieldDatePicker,
-  FieldRangePicker,
-  FieldCode,
-  FieldImage,
-  FieldTimePicker,
-  FieldText,
-  FieldStatus,
-  FieldSelect,
-  proFieldParsingText,
-  proFieldParsingValueEnumToArray,
-};
-
-export type { ProFieldValueType };
 
 export default React.forwardRef(ProField) as typeof ProField;

@@ -1,8 +1,8 @@
-import React, { FC } from 'react';
-import { Radio } from 'antd';
 import ProField from '@/packages/field';
 import type { ProSchema } from '@/packages/utils';
+import { Radio } from 'antd';
 import type { RadioGroupProps, RadioProps } from 'antd/lib/radio';
+import React, { FC } from 'react';
 import createField from '../../BaseForm/createField';
 import type { ProFormItemProps } from '../../interface';
 

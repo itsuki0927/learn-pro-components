@@ -1,13 +1,12 @@
-import React, { useState, useContext } from 'react';
-import classNames from 'classnames';
 import {
-  FilterDropdown,
   FieldLabel,
+  FilterDropdown,
   isDropdownValueType,
   useMountMergeState,
 } from '@/packages/utils';
 import { ConfigProvider } from 'antd';
-
+import classNames from 'classnames';
+import React, { useContext, useState } from 'react';
 import './index.less';
 
 export type SizeType = 'small' | 'middle' | 'large' | undefined;
@@ -58,7 +57,7 @@ const LightWrapper: React.ForwardRefRenderFunction<any, LightWrapperProps> = (pr
 
   const isDropdown =
     React.isValidElement(children) && isDropdownValueType(children.props.valueType);
-  console.log('LightWrapper:', props);
+  //  如果不是light模式 || 自定义light行为 || dropdown, 则不进行包装
   if (!light || customLightMode || isDropdown) {
     if (React.isValidElement(children)) {
       return React.cloneElement(children, {
@@ -68,10 +67,10 @@ const LightWrapper: React.ForwardRefRenderFunction<any, LightWrapperProps> = (pr
         ...children.props,
         fieldProps: {
           id,
-          onChange,
-          onBlur,
           [valuePropName]: props[valuePropName],
           ...children.props.fieldProps,
+          onChange,
+          onBlur,
         },
       });
     }
